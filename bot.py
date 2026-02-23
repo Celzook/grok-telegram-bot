@@ -9,8 +9,8 @@ from xai_sdk import Client
 from xai_sdk.chat import system, user
 
 # 환경변수 불러오기
-TELEGRAM_TOKEN = os.getenv("token")
-XAI_API_KEY = os.getenv("xai-sdk")  # xai-sdk가 자동으로 읽음
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+XAI_API_KEY = os.getenv("XAI_API_KEY")  # xai-sdk가 자동으로 읽음
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 client = Client()  # XAI_API_KEY 자동 사용
@@ -39,3 +39,4 @@ def handle_all(message):
 print("✅ 봇 시작됨...")
 
 bot.infinity_polling()
+
