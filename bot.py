@@ -1,4 +1,9 @@
 import os
+print("DEBUG: TELEGRAM_TOKEN =", os.getenv("TELEGRAM_TOKEN"))
+print("DEBUG: XAI_API_KEY =", os.getenv("XAI_API_KEY"))
+if os.getenv("TELEGRAM_TOKEN") is None:
+    print("ERROR: TELEGRAM_TOKEN is None! Check Railway Variables.")
+    exit(1)
 import telebot
 from xai_sdk import Client
 from xai_sdk.chat import system, user
@@ -32,4 +37,5 @@ def handle_all(message):
         bot.reply_to(message, f"⚠️ 오류: {str(e)}")
 
 print("✅ 봇 시작됨...")
+
 bot.infinity_polling()
